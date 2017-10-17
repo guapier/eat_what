@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>Lottery</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0" />
+    <meta name="format-detection" content="telephone=no" />
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        .lotterybox{
+            height: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="lotterybox"></div>
+    
+    <!-- Zepto or jQuery -->
+    <script src="https://cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+
+{#    <link rel="stylesheet" href="./js/lottery.min.css" />#}
+{#    <script src="./js/lottery.compact.min.js"></script>#}
+    <link rel="stylesheet" href="{{  url_for('static', filename='lottery.min.css') }}">
+    <script src="{{  url_for('static', filename='lottery.compact.min.js')}}"></script>
+
+    <!-- ROCK ON -->
+    <script>
+            $.lottery({
+                el: '.lotterybox',
+                api: '/list',
+                once: false,
+                subtitle: "name",
+                // desc: "title",
+                confetti: true,                           // 中奖时候显示小彩带动画
+                showbtn: true,                            // 显示抽奖控制按钮
+                fitsize: true,
+                timeout: 10
+            });
+    </script>
+
+</body>
+
+</html>
